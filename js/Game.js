@@ -10,7 +10,7 @@ class Game {
     this.playerMoving = false;
     
     this.leftKeyActive = false;
-    
+    this.blast = false;
 
   }
 
@@ -181,7 +181,7 @@ class Game {
           this.handleObstacleCollision(index); 
 
           if (player.life <= 0) {
-            this.blast = false;
+            this.blast = true;
             this.playerMoving = false;
           }
 
@@ -322,7 +322,7 @@ class Game {
 
 
   handlePlayerControls() {
-    
+    if (!this.blast) { 
 
       if (keyIsDown(UP_ARROW)) {
         this.playerMoving = true;
